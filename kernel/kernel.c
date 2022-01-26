@@ -121,7 +121,9 @@ void _start(struct stivale2_struct *stivale2_struct) {
 
     // We should now be able to call the above function pointer to print out
     // a simple "Hello World" to screen.
-    term_write("Hello World", 11);
+    term_write("COLBALTOS PROTOTYPE V0.01\n", 27);
+    term_write("\n", 1);
+    term_write("COPYRIGHT (C) 2022 ENUMINT", 27);
 
     // We're done, just hang...
     for (;;) {
