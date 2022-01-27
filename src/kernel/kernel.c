@@ -1,7 +1,8 @@
 #include <stdint.h>
 #include <stddef.h>
-#include <stivale2.h>>
+#include <stivale2.h>
 #include <stdio.h>
+#include <cpu.h>
 
 
 // We need to tell the stivale bootloader where we want our stack to be.
@@ -126,21 +127,21 @@ void _start(struct stivale2_struct *stivale2_struct) {
     // the stivale2_term_write function.
     void (*term_write)(const char *string, size_t length) = term_write_ptr;
      
-    //keyboard input to 
+    char test[3] = "hii";
      
     // We should now be able to call the above function pointer to print out
     // a simple "Hello World" to screen.
     term_write("COLBALTOS 0.02 'Kitchener'\n", 28);
     term_write("\n", 1);
     term_write("COPYRIGHT (C) 2022 ISAIAH ANGNAKAK\n", 36);
+    term_write("CPU TYPE: ", 11);
+    term_write(cpu_string(), 0x0C);
 
+ 
+
+  
     // get cpu info
     
-    
-
-    
-    
-
 
 
     // We're done, just hang...
