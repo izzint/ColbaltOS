@@ -136,7 +136,7 @@ void _start(struct stivale2_struct *stivale2_struct) {
     term_write("COPYRIGHT (C) 2022 ISAIAH ANGNAKAK\n", 36);
     term_write("CPU TYPE: ", 11);
     term_write(cpu_string(), 0x0C);
-
+    term_write(cpu_string(), 0x1C);
  
 
   
