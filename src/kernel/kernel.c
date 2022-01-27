@@ -1,6 +1,8 @@
 #include <stdint.h>
 #include <stddef.h>
-#include <stivale2.h>
+#include <stivale2.h>>
+#include <stdio.h>
+
 
 // We need to tell the stivale bootloader where we want our stack to be.
 // We are going to allocate our stack as an array in .bss.
@@ -97,6 +99,11 @@ void *stivale2_get_tag(struct stivale2_struct *stivale2_struct, uint64_t id) {
     }
 }
 
+
+
+
+
+
 // The following will be our kernel's entry point.
 void _start(struct stivale2_struct *stivale2_struct) {
     // Let's get the terminal structure tag from the bootloader.
@@ -118,12 +125,17 @@ void _start(struct stivale2_struct *stivale2_struct) {
     // matches the prototype described in the stivale2 specification for
     // the stivale2_term_write function.
     void (*term_write)(const char *string, size_t length) = term_write_ptr;
-
+     
+    //keyboard input to 
+     
     // We should now be able to call the above function pointer to print out
     // a simple "Hello World" to screen.
-    term_write("COLBALTOS PROTOTYPE V0.01\n", 27);
+    term_write("COLBALTOS PROTOTYPE\n", 21);
     term_write("\n", 1);
     term_write("COPYRIGHT (C) 2022 ENUMINT", 27);
+    
+
+
 
     // We're done, just hang...
     for (;;) {
