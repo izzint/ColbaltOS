@@ -130,9 +130,15 @@ void _start(struct stivale2_struct *stivale2_struct) {
      
     // We should now be able to call the above function pointer to print out
     // a simple "Hello World" to screen.
-    term_write("COLBALTOS PROTOTYPE\n", 21);
+    term_write("COLBALTOS 0.02 'Kitchener'\n", 28);
     term_write("\n", 1);
-    term_write("COPYRIGHT (C) 2022 ENUMINT", 27);
+    term_write("COPYRIGHT (C) 2022 ISAIAH ANGNAKAK\n", 36);
+
+    // get cpu info
+    
+    
+
+    
     
 
 
