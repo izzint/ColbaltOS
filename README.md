@@ -6,6 +6,7 @@
 
 
  - [x] Basic CPUID
+ - [ ] GDT
  - [ ] IDT (also exeption handler)
  - [ ] Basic Command Line
  - [ ] Commands
