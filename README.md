@@ -10,3 +10,5 @@
  - [ ] Basic Command Line
  - [ ] Commands
  - [ ] Graphical Drivers (other than bios text mode lol)
+ - [ ] GUI Stuff
+ - [ ] FINAL BOSS: POSIX
