@@ -4,8 +4,9 @@
 
 ## TODO:
 
+
  - [x] Basic CPUID
- - [ ] Get interrupts
+ - [ ] IDT (also exeption handler)
  - [ ] Basic Command Line
  - [ ] Commands
  - [ ] Graphical Drivers (other than bios text mode lol)
