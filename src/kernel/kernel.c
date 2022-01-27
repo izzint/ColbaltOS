@@ -3,7 +3,7 @@
 #include <stivale2.h>
 #include <stdio.h>
 #include <cpu.h>
-
+#include <cpuid.h>
 
 // We need to tell the stivale bootloader where we want our stack to be.
 // We are going to allocate our stack as an array in .bss.
@@ -100,6 +100,21 @@ void *stivale2_get_tag(struct stivale2_struct *stivale2_struct, uint64_t id) {
     }
 }
 
+int cputest() {
+    int eax = 0, ebx = 0, ecx = 0, edx = 0;
+    int leaf = 0x4;
+
+    __get_cpuid(leaf, eax, ebx, ecx, edx);
+    // The output is stored in variables: eax, ebx, ecx, edx
+    // Use it get the information you need about L2 cache
+}
+
+static int get_model(void)
+{
+    int ebx, unused;
+    __cpuid(0, unused, ebx, unused, unused);
+    return ebx;
+}
 
 
 
@@ -119,6 +134,8 @@ void _start(struct stivale2_struct *stivale2_struct) {
         }
     }
 
+    
+
     // Let's get the address of the terminal write function.
     void *term_write_ptr = (void *)term_str_tag->term_write;
 
@@ -126,25 +143,29 @@ void _start(struct stivale2_struct *stivale2_struct) {
     // matches the prototype described in the stivale2 specification for
     // the stivale2_term_write function.
     void (*term_write)(const char *string, size_t length) = term_write_ptr;
+
+
+    term_write("Booting on: ", 13);
+    term_write(cpu_string(), 0x0C);
+    term_write("\n", 1);
+
+    // clear screen after testing
+   
      
-    char test[3] = "hii";
+    
      
     // We should now be able to call the above function pointer to print out
     // a simple "Hello World" to screen.
     term_write("COLBALTOS 0.02 'Kitchener'\n", 28);
     term_write("\n", 1);
     term_write("COPYRIGHT (C) 2022 ISAIAH ANGNAKAK\n", 36);
-    term_write("CPU TYPE: ", 11);
-    term_write(cpu_string(), 0x0C);
-    term_write(cpu_string(), 0x1C);
- 
+    term_write("\n", 1);
 
   
-    // get cpu info
-    
 
 
-    // We're done, just hang...
+
+     //We're done, just hang...
     for (;;) {
         asm ("hlt");
     }
