@@ -15,4 +15,5 @@ struct InterruptDescriptor64 {
 }__attribute__((packed));
 
 struct InterruptDescriptor64 idt[256];
- #endif
+ 
+#endif
