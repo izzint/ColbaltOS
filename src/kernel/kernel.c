@@ -109,24 +109,10 @@ int cputest() {
     // Use it get the information you need about L2 cache
 }
 
-static int get_model(void)
-{
-    int ebx, unused;
-    __cpuid(0, unused, ebx, unused, unused);
-    return ebx;
-}
 
 
-// LDT
-struct InterruptDescriptor64 {
-   uint16_t offset_1;        // offset bits 0..15
-   uint16_t selector;        // a code segment selector in GDT or LDT
-   uint8_t  ist;             // bits 0..2 holds Interrupt Stack Table offset, rest of bits zero.
-   uint8_t  type_attributes; // gate type, dpl, and p fields
-   uint16_t offset_2;        // offset bits 16..31
-   uint32_t offset_3;        // offset bits 32..63
-   uint32_t zero;            // reserved
-};
+   
+
 
 // The following will be our kernel's entry point.
 void _start(struct stivale2_struct *stivale2_struct) {
@@ -169,7 +155,9 @@ void _start(struct stivale2_struct *stivale2_struct) {
     term_write("COPYRIGHT (C) 2022 ISAIAH ANGNAKAK\n", 36);
     term_write("\n", 1);
 
-  
+    // change color of text
+    term_write("\033[1;31m", 7);
+    term_write("hello!", 7);
 
 
 
