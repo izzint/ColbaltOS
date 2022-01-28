@@ -12,9 +12,7 @@ struct InterruptDescriptor64 {
    uint16_t offset_2;        // offset bits 16..31
    uint32_t offset_3;        // offset bits 32..63
    uint32_t zero;            // reserved
-};
+}__attribute__((packed));
 
 struct InterruptDescriptor64 idt[256];
-
-
  #endif
