@@ -140,7 +140,9 @@ void _start(struct stivale2_struct *stivale2_struct) {
 
 
     term_write("Booting on: ", 13);
+    term_write("\e[0;32m", 8);
     term_write(cpu_string(), 0x0C);
+    term_write("\e[0;37m", 8);
     term_write("\n", 1);
 
     // clear screen after testing
@@ -155,9 +157,8 @@ void _start(struct stivale2_struct *stivale2_struct) {
     term_write("COPYRIGHT (C) 2022 ISAIAH ANGNAKAK\n", 36);
     term_write("\n", 1);
 
-    // change color of text
-    term_write("\033[1;31m", 7);
-    term_write("hello!", 7);
+    
+    
 
 
 

@@ -13,4 +13,8 @@ struct InterruptDescriptor64 {
    uint32_t offset_3;        // offset bits 32..63
    uint32_t zero;            // reserved
 };
+
+struct InterruptDescriptor64 idt[256];
+
+
  #endif
