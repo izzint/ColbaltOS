@@ -1,8 +1,8 @@
 #pragma once
-
-#include <stddef.h>
-
 #include <stdint.h>
+
+#define IDT_MAX_DESCRIPTORS 			256
+#define IDT_CPU_EXCEPTION_COUNT			32
 
 struct InterruptDescriptor64 {
   uint16_t isr_low; // The lower 16 bits of the ISR's address
@@ -12,12 +12,12 @@ struct InterruptDescriptor64 {
   uint16_t isr_mid; // The higher 16 bits of the lower 32 bits of the ISR's address
   uint32_t isr_high; // The higher 32 bits of the ISR's address
   uint32_t reserved; // Set to zero
-}
-__attribute__((packed)) InterruptDescriptor64;
+} __attribute__((packed)) InterruptDescriptor64;
+
 
 struct InterruptDescriptor64 idt[256];
 
-// DO I NEED THIS??? static idtr_t idtr;
+struct idtr_t idtr;
 
 struct idtr_t {
   uint16_t limit;

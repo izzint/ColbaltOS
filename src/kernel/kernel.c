@@ -127,7 +127,8 @@ void _start(struct stivale2_struct *stivale2_struct) {
             asm ("hlt");
         }
     }
-
+    
+    
     
 
     // Let's get the address of the terminal write function.
@@ -137,11 +138,13 @@ void _start(struct stivale2_struct *stivale2_struct) {
     // matches the prototype described in the stivale2 specification for
     // the stivale2_term_write function.
     void (*term_write)(const char *string, size_t length) = term_write_ptr;
-
+     
+    
 
     term_write("Booting on: ", 13);
     term_write("\e[0;32m", 8);
     term_write(cpu_string(), 0x0C);
+    term_write("\a", 2);
     term_write("\e[0;37m", 8);
     term_write("\n", 1);
 
