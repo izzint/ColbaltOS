@@ -1,4 +1,4 @@
-Copyright 2020, 2021 mintsuki and contributors.
+Copyright 2020, 2021, 2022 Isaiah Angnakak and stivale
 
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.
 
